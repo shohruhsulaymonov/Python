@@ -12,3 +12,9 @@ print(elements[1])
 movies = ['Interstellar', 'Lalaland', 'Inception', 'Groundhog Day', '8 Mile']
 tpmovies = tuple(movies)
 print(tpmovies[1])
+#5. Check Element in a List
+lst = ['London', 'New York', 'Washington D.C.', 'Tashkent', 'Paris']
+print('Paris' in lst)
+#6. Duplicate a List Without Using Loops
+lst = [1, 4, 2, 7, 2, 6, 8, 2, 0, 2, 1, 0]
+print(lst * 2)
