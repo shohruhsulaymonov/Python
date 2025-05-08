@@ -24,13 +24,7 @@ lst = [1, 4, 2, 7, 2, 6, 8, 2, 0, 2, 1, 0]
 print(lst * 2)
 #7. Swap First and Last Elements of a List
 elements = ['Interstellar', 'Lalaland', 'Corn', 'Tomato', 'Banana']
-first = elements[0]
-last = elements[-1]
-middle = first
-first = last
-last = middle
-elements[0] = first
-elements[-1] = last
+elements[0], elements[-1] = elements[-1], elements[0]
 print(elements)
 #8. Slice a Tuple
 num = list(range(1, 11))
