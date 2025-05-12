@@ -1,3 +1,12 @@
+#1.  Determine whether a given year is a leap year.
+def is_leap(year):
+    if not isinstance(year, int):
+        raise ValueError("Year must be an integer.")
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        print(True)
+    else:
+        print(False)
+is_leap(2025)
 #2. Conditional Statements Exercise
 n = int(input())
 if (n % 2 != 0) or (n % 2 == 0 and n in range(6, 21)):
