@@ -66,3 +66,11 @@ for i in range(5):
     print(i)
 print('Done!')
 #Exercise 11: Print all prime numbers within a range
+
+
+#Exercise 13: Find the factorial of a given number
+n = 5
+factorial = 1
+for i in range(1, n + 1):
+    factorial *= i
+print(f'5! = {factorial}')
