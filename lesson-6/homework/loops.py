@@ -1,7 +1,7 @@
+#1. Modify String with Underscores
 
 
-
-#2
+#2. Integer Squares Exercise
 while True:
     n = int(input('Input a number: '))
     if 1 <= n <= 20:
