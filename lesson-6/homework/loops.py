@@ -66,8 +66,15 @@ for i in range(5):
     print(i)
 print('Done!')
 #Exercise 11: Print all prime numbers within a range
-
-
+n = range(25, 51)
+divisor = 0
+for i in n:
+    for j in range(2,i):
+        if i % j == 0:
+            divisor += 1
+    if divisor == 0:
+        print(i)
+    divisor = 0
 #Exercise 13: Find the factorial of a given number
 n = 5
 factorial = 1
