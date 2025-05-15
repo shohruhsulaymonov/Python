@@ -75,6 +75,9 @@ for i in n:
     if divisor == 0:
         print(i)
     divisor = 0
+#Exercise 12: Display Fibonacci series up to 10 terms
+
+
 #Exercise 13: Find the factorial of a given number
 n = 5
 factorial = 1
