@@ -53,3 +53,16 @@ for i in range(n):
 
     print(end ='\n')
     n -= 1
+#Exercise 8: Print list in reverse order using a loop
+list1 = [10, 20, 30, 40, 50]
+list1.reverse()
+for x in list1:
+    print(x)
+#Exercise 9: Display numbers from -10 to -1 using a for loop
+for i in range(-10, 0):
+    print(i)
+#Exercise 10: Display message “Done” after successful loop execution
+for i in range(5):
+    print(i)
+print('Done!')
+#Exercise 11: Print all prime numbers within a range
