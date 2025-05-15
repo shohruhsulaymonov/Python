@@ -17,11 +17,9 @@ while i <= 10:
     print(i)
     i += 1
 #Exercise 2: Print the following pattern
-n = 5
-
-for i in range(1, n+1):
+for i in range(1, 6):
     
-    for j in range(1, i+1):
+    for j in range(1, 6):
         print(j, end = ' ')
 
     print(end ='\n')
