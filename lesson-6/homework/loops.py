@@ -45,3 +45,10 @@ for i in num:
     counter += 1
 print(counter)
 #Exercise 7: Print reverse number pattern
+n = 5
+for i in range(n):
+    for j in range(n, 0, -1):
+        print(j, end = ' ')
+
+    print(end ='\n')
+    n -= 1
