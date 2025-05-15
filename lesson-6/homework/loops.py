@@ -36,3 +36,14 @@ n = int(input('Enter a number: '))
 for i in range(1, 11):
     print(n*i)
 #Exercise 5: Display numbers from a list using a loop
+numbers = [12, 75, 150, 180, 145, 525, 50]
+for x in numbers:
+    print(x)
+#Exercise 6: Count the total number of digits in a number
+numbers = 75869
+num = str(numbers)
+counter = 0
+for i in num:
+    counter += 1
+print(counter)
+#Exercise 7: Print reverse number pattern
