@@ -79,7 +79,7 @@ for i in n:
 fb1 = 0
 fb2 = 1
 steps = 1
-lst = [0, 1]
+lst = [fb1, fb2]
 while steps < 9 :
     fb3 = fb1 + fb2
     lst.append(fb3)
