@@ -76,8 +76,17 @@ for i in n:
         print(i)
     divisor = 0
 #Exercise 12: Display Fibonacci series up to 10 terms
-
-
+fb1 = 0
+fb2 = 1
+steps = 1
+lst = [0, 1]
+while steps < 9 :
+    fb3 = fb1 + fb2
+    lst.append(fb3)
+    fb1, fb2 = fb2, fb3
+    steps += 1
+for i in lst:
+    print(i)
 #Exercise 13: Find the factorial of a given number
 n = 5
 factorial = 1
