@@ -25,4 +25,9 @@ def digitsum(k) -> int:
 digitsum(502)
 
 #3
-
+def power(N):
+    p = 1
+    while 2**p <= N:
+        print(2**p, end = ' ')
+        p += 1
+power(10)
