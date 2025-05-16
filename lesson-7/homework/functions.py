@@ -11,9 +11,9 @@ def is_prime(n):
         if n % i == 0:
             divisors += 1
     if divisors == 0:
-        print(True)
+        return True
     else:
-        print(False)
+        return False
 is_prime(0)
 #2
 def digitsum(k) -> int:
