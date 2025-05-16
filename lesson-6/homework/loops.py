@@ -1,6 +1,15 @@
 #1. Modify String with Underscores
-
-
+string = 'assalomll'
+new_string = ''
+char = 1
+vowel = 'aouie'
+for i in string:
+    if (not char % 3) and (i.lower() not in vowel) and (char < len(string)):
+        new_string += i + '_'
+    else:
+        new_string += i
+    char += 1
+print(new_string)
 #2. Integer Squares Exercise
 while True:
     n = int(input('Input a number: '))
@@ -93,3 +102,14 @@ factorial = 1
 for i in range(1, n + 1):
     factorial *= i
 print(f'5! = {factorial}')
+#4. Return Uncommon Elements of Lists
+def uncommon(list1, list2):
+    for i in list1:
+        if i not in list2:
+            new_list.append(i)
+    for j in list2:
+        if j not in list1:
+            new_list.append(j)
+    print(new_list)
+new_list.clear()
+uncommon(list1 = [1, 1, 2, 3, 4, 2], list2 = [1, 3, 4, 5])
