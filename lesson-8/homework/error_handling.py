@@ -71,5 +71,26 @@ def call_method(lst):
 my_list = [23, 53, 42, 2, 5]
 call_method(my_list)
 #11
+contents = open('D:\\Project\\categories.txt', 'r')
+print(contents)
 #12
+def read_line(n):
+    with open('D:\\Project\\categories.txt', 'r') as file:
+        contents = file.readlines()
+
+    return contents[:n]
+print(*read_line(2))
 #13
+#14
+#15
+#16
+#17
+#18
+#19
+#20
+#21
+#22
+#23
+#24
+#25
+#26
