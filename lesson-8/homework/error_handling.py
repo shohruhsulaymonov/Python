@@ -61,8 +61,15 @@ def read_file(file_path):
         print(f'An unexpected error occured: {e}')
 file_path = 'D:\\Project\\categories.csv'
 read_file(file_path)
-
 #10
+def call_method(lst):
+    try:
+        lst.add()
+        print(lst)
+    except AttributeError:
+        print('No such attribute exists')
+my_list = [23, 53, 42, 2, 5]
+call_method(my_list)
 #11
 #12
 #13
