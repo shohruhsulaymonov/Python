@@ -182,7 +182,20 @@ def count_lines(filename):
 filepath = 'D:\\Project\\categories.txt'
 print(count_lines(filepath))
 #21
+def count_words(filename):
+    word_freq = dict()
 
+    with open(filename, 'r') as file:
+        words = file.read().split()
+        for word in words:
+            if word not in word_freq:
+                word_freq[word] = 1
+            else:
+                word_freq[word] += 1
+    return word_freq
+
+
+print(count_words('test.txt'))
 #22
 #23
 #24
