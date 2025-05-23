@@ -81,13 +81,96 @@ def read_line(n):
     return contents[:n]
 print(*read_line(2))
 #13
+def read_lines():
+    with open("D:\\Project\\categories.txt", 'a') as file:
+        file.write('\n8,Starbucks')
+
+        file = open("D:\\Project\\categories.txt", 'r')
+        contents = file.read()
+        
+    print(contents)
+    
+read_lines()
 #14
+def read_lines(n):
+    try:
+        with open("D:\\Project\\categories.txt", 'r') as file:
+            contents = file.readlines()
+            
+        return contents[-n:]
+    except FileNotFoundError as e:
+        print("File doesn't exist in the given path")
+        return []
+    except Exception as e:
+         print(f"An error occurred: {e}")
+         return []
+print(*read_lines(5))
 #15
+def read_lines():
+    try:
+        with open("D:\\Project\\categories.txt", 'r') as file:
+            contents = file.readlines()
+            
+        return contents
+    except FileNotFoundError as e:
+        print("File doesn't exist in the given path")
+    
+print(read_lines())
 #16
+try:
+    with open("D:\\Project\\categories.txt", 'r') as file:
+        contents = file.readlines()
+except FileNotFoundError as e:
+    print("File doesn't exist in the given path")
+    
+print(contents)
 #17
+try:
+    with open("D:\\Project\\categories.txt", 'r') as file:
+        contents = tuple(file.readlines())
+except FileNotFoundError as e:
+    print("File doesn't exist in the given path")
+    
+print(contents)
 #18
+try:
+    with open("D:\\Project\\categories.txt", 'r') as file:
+        contents = list(file.readlines())
+except FileNotFoundError as e:
+    print("File doesn't exist in the given path")
+    
+print(contents)
 #19
+def find_longest_words(filename):
+    try:
+        with open(filename, 'r') as file:
+            words = file.read().split()
+        words = [word.strip(".,!?;:'\"()[]{}") for word in words]
+
+        max_length = 0
+        longest_text = list()
+
+        for text in words:
+            if len(text) > max_length:
+                max_length = len(text)
+                longest_text = [text]
+
+            elif len(text) == max_length:
+                if text not in longest_text:
+                    longest_text.append(text)
+
+        return longest_text, max_length
+    except FileNotFoundError:
+        print(f'The file "{filename}" not found')
+    except Exception as e:
+        print(f'An error occured. {e}')
+
+longest, len = find_longest_words('D:\\Project\\categories.txt')
+print(f'Longest word(s) of {len}: ')
+for i in longest:
+    print(i)
 #20
+
 #21
 #22
 #23
