@@ -170,8 +170,19 @@ print(f'Longest word(s) of {len}: ')
 for i in longest:
     print(i)
 #20
-
+def count_lines(filename):
+    try:
+        with open(filename, 'r') as file:
+            contents = file.readlines()
+        return len(contents)
+    except FileNotFoundError:
+        print(f"File not found in the path '{filename}'")
+    except Exception as e:
+        print("An unexpected error occured", e)
+filepath = 'D:\\Project\\categories.txt'
+print(count_lines(filepath))
 #21
+
 #22
 #23
 #24
