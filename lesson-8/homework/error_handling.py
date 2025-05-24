@@ -240,6 +240,27 @@ def copy_file():
 
 copy_file()
 #25
+def copy_file():
+    try:
+        with open('first_names.txt', 'r') as fn:
+            fnames = fn.readlines()
+        with open('last_names.txt', 'r') as ln:
+            lnames = ln.readlines()
+
+        combined = []
+
+        for f, l in zip(fnames, lnames):
+            combined.append(f.strip() + ' ' + l.strip() + '\n')
+
+        with open('full_names.txt', 'w') as file:
+            file.writelines(combined)
+
+    except FileNotFoundError:
+        print('File not found') 
+    except Exception as e:
+        print('An unexpected error occured', e)
+
+copy_file() 
 #26
 #27
 #28
