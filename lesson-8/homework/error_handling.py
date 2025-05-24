@@ -208,6 +208,20 @@ def get_file_size(filename):
         print('An unexpected error', e)
 print(get_file_size('test.txt'))
 #23
+characters = ['Diluc', 'Barbara', 'Jean', 'Kaeya', 'Albedo', 'Qiqi', 'Hu Tao']
+def write_list():
+    try:
+        with open('genshin.txt', 'w+') as file:
+            for character in characters:
+                file.write(f'{character}\n') 
+            file.seek(0)
+            contents = file.read()
+            print(contents)
+    except FileNotFoundError:
+        print('File not found')
+    except Exception:
+        print('An unexpected error occured')
+write_list()
 #24
 #25
 #26
