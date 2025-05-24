@@ -241,3 +241,20 @@ def copy_file():
 copy_file()
 #25
 #26
+#27
+#28
+#29
+#30
+#31
+def create_file():
+    try:
+        for i in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
+            with open(f'{i}.txt', 'w'):
+                pass
+    except FileNotFoundError:
+        print('File not found')
+    except Exception:
+        print('An unexpected error occured')
+
+create_file()
+#32
