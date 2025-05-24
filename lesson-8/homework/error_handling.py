@@ -223,5 +223,21 @@ def write_list():
         print('An unexpected error occured')
 write_list()
 #24
+def copy_file():
+    try:
+
+        with open('new_file.txt', 'w+') as file:
+            with open('genshin.txt', 'r+') as gen:
+                for i in gen:
+                    file.write(i)
+            file.seek(0)
+            contents = file.read()
+            print(contents)
+    except FileNotFoundError:
+        print('File not found')
+    except Exception:
+        print('An unexpected error occured')
+
+copy_file()
 #25
 #26
