@@ -197,6 +197,16 @@ def count_words(filename):
 
 print(count_words('test.txt'))
 #22
+import os
+def get_file_size(filename):
+    try:
+        file_size =os.path.getsize(filename)
+        return file_size
+    except FileNotFoundError:
+        print('File not found')
+    except Exception as e:
+        print('An unexpected error', e)
+print(get_file_size('test.txt'))
 #23
 #24
 #25
