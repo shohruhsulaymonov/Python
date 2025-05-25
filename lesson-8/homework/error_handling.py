@@ -262,8 +262,30 @@ def copy_file():
 
 copy_file() 
 #26
+import random
+def read_random_line():
+    try:
+        with open('full_names.txt', 'r') as file:
+            lines = file.read().splitlines()
+        return random.choice(lines)
+    except FileNotFoundError:
+        print('File Not Found')
+    except Exception as e:
+        print('An unexpected error popped up', e)
+print(read_random_line())
 #27
+def is_closed(filename):
+    if filename.closed == True:
+        print('The file is closed')
+    else:
+        print("The file is open")  
+
+
+file = open('full_names.txt')
+
+is_closed(file)
 #28
+
 #29
 #30
 #31
