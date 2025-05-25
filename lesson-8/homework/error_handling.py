@@ -294,6 +294,14 @@ def remove_new_line(filename):
     
 print(new_line('full_names.txt'))
 #29
+def num_of_words(filename):
+    with open(filename, 'r') as file:
+        contents = file.read().replace(',', ' ')
+    words = contents.split()
+    return len(words)
+
+
+print(num_of_words('full_names.txt'))
 #30
 #31
 def create_file():
