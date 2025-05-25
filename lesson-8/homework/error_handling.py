@@ -285,7 +285,14 @@ file = open('full_names.txt')
 
 is_closed(file)
 #28
-
+def remove_new_line(filename):
+    with open(filename, 'r') as file:
+        contents = file.read().replace('\n', '')
+    with open(filename, 'w') as outfile:
+        outfile.write(contents)
+    return contents
+    
+print(new_line('full_names.txt'))
 #29
 #30
 #31
