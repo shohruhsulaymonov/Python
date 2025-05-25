@@ -38,3 +38,24 @@ class Person:
 
 client = Person('Nice', 'Uzbekistan', '2007-05-30')
 print(client.get_age())
+#3
+class Calculator:
+    def __init__(self, a: int, b: int):
+        self.a = a
+        self.b = b
+    def add(self):
+        return self.a + self.b
+    def sub(self):
+        return self.a - self.b
+    def mul(self):
+        return self.a * self.b
+    def div(self):
+        try:
+            result = self.a / self.b
+            return result
+        except ZeroDivisionError:
+            print("Divizor CAN'T be zero")
+
+nums = Calculator(5, 0)
+print(nums.div())
+#4
