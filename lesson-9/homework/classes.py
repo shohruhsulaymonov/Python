@@ -59,3 +59,54 @@ class Calculator:
 nums = Calculator(5, 0)
 print(nums.div())
 #4
+class Shape:
+    pass
+
+                    
+class Circle(Shape):
+
+    def __init__(self, radius):
+        self.radius = radius
+
+    def get_area(self):
+        return round(pow(self.radius, 2)*3.14, 2)
+
+    def get_perimeter(self):
+        return round(2*3.14*self.radius, 2)
+
+class Square(Shape):
+    def __init__(self, size):
+        self.size = size
+
+    def get_area(self):
+        return self.size**2
+
+    def get_perimeter(self):
+        return self.size*4
+
+    def get_diagonal(self):
+        return self.size*pow(2,0.5)
+
+class Triangle(Shape):
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c
+        self.sides = f'{a = }, {b = }, {c = }'
+
+    def get_area(self, height, base):
+        return height*base * 0.5
+
+    def get_perimeter(self):
+        return self.a + self.b + self.c
+
+cyrcle = Circle(3.14)
+print(cyrcle.get_perimeter())
+
+sqware = Square(10)
+print(sqware.get_diagonal())
+
+threeangle = Triangle(4, 5, 7)
+print(threeangle.get_area(6, 10))
+print(threeangle.get_perimeter())
+print(threeangle.sides)
