@@ -110,3 +110,41 @@ threeangle = Triangle(4, 5, 7)
 print(threeangle.get_area(6, 10))
 print(threeangle.get_perimeter())
 print(threeangle.sides)
+#5
+#6
+#7
+#8
+class Cart:
+    items = dict()
+    def __init__(self):
+        pass
+
+    def add_item(self, product: str, price: float):
+        if product in self.items:
+            print(f'You already have {product} in your cart!')
+        self.items[product] = price
+    
+    def remove_item(self, product):
+        if product in self.items:
+            self.items.pop(product)
+        else:
+            print('You do not have this product in your cart!')
+
+    def my_items(self):
+        if self.items:
+            print('Items in your cart:')
+            n = 1
+            for item in self.items.keys():
+                print(f'{n}. ' + item)
+                n += 1
+        else:
+            print("You don't have anytihing in your cart, yet")
+
+    def total_price(self):
+        return sum(self.items.values())
+    
+    def clear_cart(self):
+        return self.items.clear()
+#9
+#10
+#11
