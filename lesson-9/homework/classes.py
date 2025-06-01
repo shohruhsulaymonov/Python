@@ -148,3 +148,65 @@ class Cart:
 #9
 #10
 #11
+class Bank:
+    def __init__(self, user: str, balance = 0, in_debt = 0) -> None:
+        self.user = user
+        self.balance = balance
+        self.in_debt = in_debt
+    
+    def __str__(self):
+        return f"User: {self.user}, Balance: {self.balance}, In Debt: {self.in_debt}"
+
+    def deposit(self, amount: float):
+        self.balance += amount
+    
+    def withdraw(self, amount):
+        if self.balance - amount >= 0:
+            self.balance -= amount
+        else:
+            print('You have insufficient amount of money to make the withdrawal!')
+            
+    def take_loan(self, amount):
+        self.in_debt += amount*1.1 #interest rate
+        self.balance += amount
+    
+    def return_loan(self, amount):
+        if self.balance >= amount:
+            if amount > self.in_debt:
+                self.balance - self.in_debt
+                self.in_debt = 0
+            else:
+                self.balance -= amount
+                self.in_debt -= amount
+        else:
+            print('You have insufficient funds to return the loan')
+            
+    
+    
+
+class Customers:
+    def __init__(self):
+        self.users_list = []
+    
+    def add_user(self, user, balance=0, in_debt=0):
+        new_user = Bank(user, balance, in_debt)
+        self.users_list.append(new_user)
+
+    def transfer(self, from_user_name: str, to_user_name: str, amount: float):
+        from_user = next((user for user in self.users_list if user.user == from_user_name), None)
+        to_user = next((user for user in self.users_list if user.user == to_user_name), None)
+
+        if from_user is None:
+            print(f"Sender '{from_user_name}' not found.")
+            return
+
+        if to_user is None:
+            print(f"Receiver '{to_user_name}' not found.")
+            return
+
+        if from_user.balance >= amount:
+            from_user.balance -= amount
+            to_user.balance += amount
+            print(f"Transferred {amount} from {from_user_name} to {to_user_name}.")
+        else:
+            print(f"{from_user_name} has insufficient funds to transfer {amount}.")
