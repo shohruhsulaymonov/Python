@@ -111,6 +111,45 @@ print(threeangle.get_area(6, 10))
 print(threeangle.get_perimeter())
 print(threeangle.sides)
 #5
+class Tree:
+    def __init__(self, value):
+        self.key = value
+        self.left = None
+        self.right = None
+
+def insert(root, val):
+    if root is None:
+        return Tree(val)
+    if root.key == val:
+        return root
+    if root.key > val:
+        root.left = insert(root.left, val)
+    else:
+        root.right = insert(root.right, val)
+    return root
+
+
+def search(root, key):
+    if root is None or root.key == key:
+        return root
+
+    if root.key > key:
+        return search(root.left, key)
+    
+    return search(root.right, key)
+
+
+root = Tree(50)
+root.left = Tree(30)
+root.right = Tree(70)
+root.left.left = Tree(20)
+root.left.right = Tree(40)
+root.right.left = Tree(60)
+root.right.right = Tree(80)
+
+# Searching for keys in the BST
+print("Found" if search(root, 19) else "Not Found")
+print("Found" if search(root, 80) else "Not Found")
 #6
 #7
 #8
