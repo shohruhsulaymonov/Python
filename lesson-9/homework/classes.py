@@ -147,8 +147,7 @@ class Cart:
         return self.items.clear()
 #9
 #10
-#11
-class Bank:
+#11class Bank:
     def __init__(self, user: str, balance = 0, in_debt = 0) -> None:
         self.user = user
         self.balance = balance
@@ -193,8 +192,8 @@ class Customers:
         self.users_list.append(new_user)
 
     def transfer(self, from_user_name: str, to_user_name: str, amount: float):
-        from_user = next((user for user in self.users_list if user.user == from_user_name), None)
-        to_user = next((user for user in self.users_list if user.user == to_user_name), None)
+        from_user = next((account for account in self.users_list if account.user == from_user_name), None)
+        to_user = next((account for account in self.users_list if account.user == to_user_name), None)
 
         if from_user is None:
             print(f"Sender '{from_user_name}' not found.")
@@ -210,3 +209,5 @@ class Customers:
             print(f"Transferred {amount} from {from_user_name} to {to_user_name}.")
         else:
             print(f"{from_user_name} has insufficient funds to transfer {amount}.")
+
+    
