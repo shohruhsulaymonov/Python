@@ -151,6 +151,32 @@ root.right.right = Tree(80)
 print("Found" if search(root, 19) else "Not Found")
 print("Found" if search(root, 80) else "Not Found")
 #6
+class Stack:
+    elements_list = []
+    def __init__(self):
+        pass
+
+
+    def push(self, val):
+        self.elements_list.append(val)
+
+
+    def pop(self):
+        self.elements_list.pop()
+
+
+    def peek(self):
+        '''Returns the top elements of the stack'''
+        return self.elements_list[-1]
+
+
+    def isEmpty(self):
+        if not self.elements_list:
+            return True
+        else:
+            return False
+    def size(self):
+        return len(self.elements_list)
 #7
 #8
 class Cart:
