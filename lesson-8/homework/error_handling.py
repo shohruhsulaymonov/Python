@@ -316,3 +316,11 @@ def create_file():
 
 create_file()
 #32
+with open('Alphabet.txt', 'w+') as file:
+    counter = 0 # To count how many character there are currently in line
+    for letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
+        file.write(letter)
+        counter += 1 # Adds 1 after each write, which is one letter
+        if counter == 4: # Number of letters per line
+            file.write('\n') #Goes to a new line once the limit is reached
+            counter = 0 #Sets counter back to zero, and then counts again
