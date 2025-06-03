@@ -370,7 +370,19 @@ class Stack:
         for i in self.elements_list:
             print(i)
 #10
+class Queue:
+    queue = []
+    def __init__(self):
+        pass
+    
+    def enqueue(self, data):
+        self.queue.append(data)
 
+    def dequeue(self):
+        self.queue.pop(0)
+
+    def display(self):
+        print(self.queue)
 #11
 class Bank:
     def __init__(self, user: str, balance = 0, in_debt = 0) -> None:
