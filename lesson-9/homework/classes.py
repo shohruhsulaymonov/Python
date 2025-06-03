@@ -338,8 +338,41 @@ class Cart:
     def clear_cart(self):
         return self.items.clear()
 #9
+class Stack:
+    elements_list = []
+    def __init__(self):
+        pass
+
+
+    def push(self, val):
+        self.elements_list.append(val)
+
+
+    def pop_element(self):
+        self.elements_list.pop()
+
+
+    def peek(self):
+        '''Returns the top elements of the stack'''
+        return self.elements_list[-1]
+
+
+    def isEmpty(self):
+        if not self.elements_list:
+            return True
+        else:
+            return False
+
+    def size(self):
+        return len(self.elements_list)
+
+    def display(self):
+        for i in self.elements_list:
+            print(i)
 #10
-#11class Bank:
+
+#11
+class Bank:
     def __init__(self, user: str, balance = 0, in_debt = 0) -> None:
         self.user = user
         self.balance = balance
