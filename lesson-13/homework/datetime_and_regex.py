@@ -23,3 +23,18 @@ def next_bd(dob):
         return "Today is your Birthday!"
     else:
         return f"Your next Birthday is in {diff} day(s)"
+#3
+
+#4
+import pytz
+from datetime import datetime
+
+def timezone_converter(date_and_time, current_timezone, target_timezone):
+    dt = datetime.strptime(date_and_time, '%Y-%m-%d %H:%M:%S')
+    current_zone = pytz.timezone(current_timezone)
+    current_dt = current_zone.localize(dt)
+    target_zone = pytz.timezone(target_timezone)
+    # c_dt = datetime(dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second, tzinfo=current_zone)
+    target = current_dt.astimezone(target_zone)
+
+    return target
