@@ -7,3 +7,19 @@ def age(birth_date):
     today = dt.today()
     diff = relativedelta(today, dob)
     return f"You a are {diff.years} year(s), {diff.months} month(s) and {diff.days} day(s) old"
+#2 Next Birtday calculator
+from datetime import datetime as dt, date
+def next_bd(dob):
+    dob = dt.strptime(dob, '%Y-%m-%d')
+    today = dt.today().date()
+    next_bd = None
+    if (dob.month < today.month) or (dob.month == today.month and dob.day < today.day):
+        next_bd = date(today.year + 1, dob.month, dob.day)
+    else:
+        next_bd = date(today.year, dob.month, dob.day)
+    diff = next_bd - today
+    diff = diff.days
+    if diff == 0:
+        return "Today is your Birthday!"
+    else:
+        return f"Your next Birthday is in {diff} day(s)"
