@@ -24,7 +24,15 @@ def next_bd(dob):
     else:
         return f"Your next Birthday is in {diff} day(s)"
 #3
-
+current = input('Please, enter the current date and time(YYYY-mm-dd HH:MM): ')
+current = datetime.strptime(current, '%Y-%m-%d %H:%M')
+duration = input('How long does the meeting last (HH-MM)?: ')
+duration = datetime.strptime(duration, '%H:%M')
+hours = duration.hour
+minutes = duration.minute
+time_to_add = timedelta(hours=hours, minutes=minutes)
+end_time = current + time_to_add
+print(end_time)
 #4
 import pytz
 from datetime import datetime
