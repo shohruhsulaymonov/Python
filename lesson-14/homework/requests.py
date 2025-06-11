@@ -50,3 +50,28 @@ with open('students.json') as file:
         for j in i:
             print(f'{j}: {i[j]}')
 #2
+import requests
+
+api_key = 'a8d09063596f0bf1cbb25838831af6b5'
+
+city = 'Tashkent'
+
+
+u = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric'
+
+
+def get_weather_info(url):
+    try:
+        response = requests.get(url)
+        weather_data = response.json()
+        response.raise_for_status()
+        return weather_data
+    except requests.exceptions.HTTPError as err:
+        print(f'HTTP error {err}')
+    except Exception as e:
+        print(f'Error {e}')
+
+def print_weather_info(data):
+    print(f'City: {data['name']}\nWeather: {data['weather'][0]['main']}\nTemperature: {data['main']['temp']}°C\nHumidity: {data['main']['humidity']}%\nWindSpeed: {data['wind']['speed']} m/s')
+
+print_weather_info(get_weather_info(u))
