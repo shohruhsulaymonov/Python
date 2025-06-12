@@ -45,3 +45,15 @@ def timezone_converter(date_and_time, current_timezone, target_timezone):
     target = current_dt.astimezone(target_zone)
 
     return target
+#5
+def countdown(fdate):
+    future_date = datetime.strptime(fdate, '%Y-%m-%d %H:%M:%S')
+    while True:
+        now = datetime.now().replace(microsecond=0)
+        diff = future_date - now
+
+        print(diff)
+        t.sleep(1)
+        if not diff:
+            print("Time is up!")
+            break
