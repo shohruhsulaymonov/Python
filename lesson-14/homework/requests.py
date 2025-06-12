@@ -144,7 +144,8 @@ def update_book(title: str,  target:str, new_info) -> None:
   for book in books_list["books"]:
     if book["title"].lower() == title.strip().lower():
       if target in ("title", "author", "year_published", "country", "genre"):
-        book[f"{target}".lower()] = new_info
+        book.update({f"{target}": new_info })
+        print(f"The {target} of the book {title} was changed to {new_info}")
         break
       else:
         print(f"{target} is not a valid info about the book")
@@ -154,4 +155,3 @@ def update_book(title: str,  target:str, new_info) -> None:
 
   with open("Books.json", "w") as f:
     json.dump(books_list, f, indent=2)
-
