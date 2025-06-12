@@ -75,3 +75,83 @@ def print_weather_info(data):
     print(f'City: {data['name']}\nWeather: {data['weather'][0]['main']}\nTemperature: {data['main']['temp']}°C\nHumidity: {data['main']['humidity']}%\nWindSpeed: {data['wind']['speed']} m/s')
 
 print_weather_info(get_weather_info(u))
+
+#3
+import json
+
+
+def load_books(filename="Books.json"):
+    try:
+        with open(filename, "r") as f:
+            return json.load(f)
+    except json.JSONDecodeError:
+        print(f"{filename} is corrupted or not valid JSON.")
+    except Exception as e:
+        print(f"Unexpected error loading file: {e}")
+    return
+
+
+
+def add_book(title: str , author: str, year: int, country: str, genre: str) -> None:
+  books_list = load_books()
+
+  new_book = {"title": title,
+              "author": author,
+              "year_published": year,
+              "country": country,
+              "genre": genre
+              }
+
+  if new_book not in books_list["books"]:
+    books_list["books"].append(new_book)
+
+    with open("Books.json", "w") as f:
+      json.dump(books_list, f, indent=2)
+
+    print("The book was successfully added to the file!")
+
+  else:
+    print("The book already exists in the file!")
+
+
+
+
+def remove_book(title: str) -> None:
+
+  books_list = load_books()
+        
+
+  for book in books_list["books"]:
+    if book["title"].lower() == title.strip().lower():
+      books_list["books"].remove(book)
+
+      with open("Books.json", "w") as f:
+        json.dump(books_list, f, indent=2)
+
+      print("The book was succeessfully removed from the file")
+      break
+
+  else:
+    print(f"There's no such book '{title}'")
+
+
+
+
+def update_book(title: str,  target:str, new_info) -> None:
+
+  books_list = load_books()
+
+  for book in books_list["books"]:
+    if book["title"].lower() == title.strip().lower():
+      if target in ("title", "author", "year_published", "country", "genre"):
+        book[f"{target}".lower()] = new_info
+        break
+      else:
+        print(f"{target} is not a valid info about the book")
+        break
+  else:
+    print(f"There's no such book {"title"}")
+
+  with open("Books.json", "w") as f:
+    json.dump(books_list, f, indent=2)
+
