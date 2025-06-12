@@ -57,3 +57,24 @@ def countdown(fdate):
         if not diff:
             print("Time is up!")
             break
+#6
+import re
+
+
+
+def email_validator(email: str):
+    
+    try:
+        pattern = r'\b[\w._%+-]+@[\w._-]+\.[A-Za-z._%+-]+\b'
+        result = re.match(pattern, email.strip())
+
+    except (AttributeError, TypeError):
+        print('The input is of wrong data type')
+        return
+
+    if result:
+        print(f"Your email '{email}' is valid")
+    else:
+        print(f"Your email '{email}' is NOT valid")
+
+email_validator(123)
