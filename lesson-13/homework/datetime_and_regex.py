@@ -78,3 +78,12 @@ def email_validator(email: str):
         print(f"Your email '{email}' is NOT valid")
 
 email_validator(123)
+
+#7
+def format_number(digits):
+    if len(digits) != 10:
+        return "Invalid phone number. Must contain exactly 10 digits."
+
+    formatted_number = f"({digits[:3]}) {digits[3:6]}-{digits[6:]}"
+
+    return formatted_number
