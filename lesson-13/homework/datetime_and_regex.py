@@ -130,11 +130,15 @@ Never insult a toaster with a superiority complex. Especially not one that knows
 
 
 def word_finder(word): # get a word to be searched from a user as input
+
     try:
         pattern = str(word) # cast the input to a string in case non_string argument is given. Text is a string, so, logically, we should look for a string
     except ValueError:
         return "The looking value must be a string" # if the argument is not convertable to str, then prints a warning
+
     result = re.findall(pattern, text) # finds all occurences of the word in the text
+
     if not result:
         return f"There are no occurences of the word '{word}' in the text" # if no words there are in the text, it says so
+        
     return result # returns the result
