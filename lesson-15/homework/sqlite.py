@@ -15,3 +15,21 @@ with sqlite3.connect('database.db') as connection:
     '''
     cursor.execute(insert)
 #3
+with sqlite3.connect('database.db') as connection:
+    cursor = connection.cursor()
+    update = '''
+    UPDATE Roster
+    SET Name = 'Ezri Dax'
+    WHERE Name = 'Jadzia Dax';
+    '''
+    cursor.execute(update)
+#4
+with sqlite3.connect('database.db') as connnection:
+    cursor = connection.cursor()
+    select = '''
+    SELECT Name, Age
+    FROM Roster
+    WHERE Species = 'Bajoran';
+    '''
+    result = cursor.execute(select).fetchall()
+print(result)
