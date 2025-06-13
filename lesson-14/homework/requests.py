@@ -155,3 +155,78 @@ def update_book(title: str,  target:str, new_info) -> None:
 
   with open("Books.json", "w") as f:
     json.dump(books_list, f, indent=2)
+
+#4
+# lists of titles movies of a particular genre to fetch a movie based on the genre the user inputs
+genres = {
+    "Action": [
+        "Mad Max: Fury Road",
+        "John Wick",
+        "Die Hard",
+        "Gladiator",
+        "The Dark Knight"
+    ],
+    "Comedy": [
+        "Superbad",
+        "The Hangover",
+        "Step Brothers",
+        "Monty Python and the Holy Grail",
+        "Groundhog Day"
+    ],
+    "Drama": [
+        "The Shawshank Redemption",
+        "Forrest Gump",
+        "The Godfather",
+        "Fight Club",
+        "12 Angry Men"
+    ],
+    "Science Fiction": [
+        "Interstellar",
+        "Inception",
+        "Blade Runner 2049",
+        "The Matrix",
+        "Arrival"
+    ],
+    "Horror": [
+        "The Conjuring",
+        "Get Out",
+        "Hereditary",
+        "A Nightmare on Elm Street",
+        "The Exorcist"
+    ],
+    "Romance": [
+        "The Notebook",
+        "Titanic",
+        "Pride & Prejudice",
+        "La La Land",
+        "Before Sunrise"
+    ],
+    "Fantasy": [
+        "The Lord of the Rings: The Fellowship of the Ring",
+        "Harry Potter and the Sorcerer's Stone",
+        "The Chronicles of Narnia",
+        "Pan's Labyrinth",
+        "Stardust"
+    ]
+}
+
+#Actual code
+import random
+import requests
+
+
+def movie_recommendation(genre):
+
+    key = '42cc9218' #API key from the website
+    movie = random.sample(genres[genre], 1) # retrieves a random movie name based on the genre
+    url = f'http://www.omdbapi.com/?t={movie}&apikey={key}' #url of the website
+    
+    try:
+        response = requests.get(url) # the response of the website
+    except requests.exceptions.HTTPError:
+        print("HHTPError occured")
+    #Handling potential error
+
+    dct_response = response.json() #Converting the .json format to dict object to work with data
+
+    return f"Title: {dct_response['Title']}\nActors: {dct_response['Actors']}\nDirector: {dct_response['Director']}\nGenre: {dct_response['Genre']}\nRatings: {dct_response['Ratings'][0]['Value']}" # returns the main info about the movie
