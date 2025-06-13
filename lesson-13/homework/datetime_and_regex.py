@@ -142,3 +142,12 @@ def word_finder(word): # get a word to be searched from a user as input
         return f"There are no occurences of the word '{word}' in the text" # if no words there are in the text, it says so
         
     return result # returns the result
+
+#10
+def find_date(text):
+    
+    pattern = '[0-9]{4}-[0-9]{,2}-[0-9]{,2}'
+    
+    result = re.findall(pattern, text)
+
+    return result
