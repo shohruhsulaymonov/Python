@@ -90,27 +90,28 @@ def format_number(digits):
 
 #8
 import re
+password = '0!98a-sA'
 
 def pass_checker(password):
-    import re
-    upper_case_pattern = ".*?[A-Z]+.*?"
-    lower_case_pattern = ".*?[a-z]+.*?"
-    digit_pattern = ".*?[0-9]+.*?"
-    special_pattern = "^.*[,.!/<>?|':\\\"=+-_&^%$#`~]+.*$"
+    upper_case_pattern = ".*?[A-Z]+.*?" # pattern for uppercase letters
+    lower_case_pattern = ".*?[a-z]+.*?" # pattern for lowercase letters 
+    digit_pattern = ".*?[0-9]+.*?" # pattern for digits
+    special_pattern = "^.*[,.!/<>?|':\\\"=+-_&^%$#`~]+.*$" # pattern for special characters like @ & - _
     
-    if len(password) < 8:
+    if len(password) < 8: # checks the length of the password> If the length is less than 8 characters, notifies the user that it must be at least 8 and ends the function
         print('The password is too short. It must me at least 8 characters long')
         return
-    if not re.match(upper_case_pattern, password):
+    if not re.match(upper_case_pattern, password): # chechs whether any uppercse letters are present in the password using the match function from re module and if it does not exists print the text and stops the function
         print('The password must contain at least one uppercase letter')
         return
-    if not re.match(lower_case_pattern, password):
+    if not re.match(lower_case_pattern, password): # the same as for uppercase letters but for lowercase
         print('The password must contain at least one lowercase letter')
         return
-    if not re.match(digit_pattern, password):
+    if not re.match(digit_pattern, password): # checks whether any digits are present
         print('The password must contain at least one digit')
         return
-    if not re.match(special_pattern, password):
+    if not re.match(special_pattern, password): # checks for special chracters
         print('The password must contain at least one special character')
         return
-    print('Your password is secure')
+    print('Your password is secure') # Informs the user htat the password is secure if it satisfies (or rather does NOT satisfy) all the above conditions
+        
