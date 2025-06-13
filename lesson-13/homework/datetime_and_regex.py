@@ -87,3 +87,30 @@ def format_number(digits):
     formatted_number = f"({digits[:3]}) {digits[3:6]}-{digits[6:]}"
 
     return formatted_number
+
+#8
+import re
+
+def pass_checker(password):
+    import re
+    upper_case_pattern = ".*?[A-Z]+.*?"
+    lower_case_pattern = ".*?[a-z]+.*?"
+    digit_pattern = ".*?[0-9]+.*?"
+    special_pattern = "^.*[,.!/<>?|':\\\"=+-_&^%$#`~]+.*$"
+    
+    if len(password) < 8:
+        print('The password is too short. It must me at least 8 characters long')
+        return
+    if not re.match(upper_case_pattern, password):
+        print('The password must contain at least one uppercase letter')
+        return
+    if not re.match(lower_case_pattern, password):
+        print('The password must contain at least one lowercase letter')
+        return
+    if not re.match(digit_pattern, password):
+        print('The password must contain at least one digit')
+        return
+    if not re.match(special_pattern, password):
+        print('The password must contain at least one special character')
+        return
+    print('Your password is secure')
