@@ -115,3 +115,26 @@ def pass_checker(password):
         return
     print('Your password is secure') # Informs the user htat the password is secure if it satisfies (or rather does NOT satisfy) all the above conditions
         
+#9
+import re  # import the module
+
+# A random text to look for a word
+text = '''Bob was an ordinary guy, except for the fact that his toaster had developed sentience after a lightning strike and now demanded to be called Sir Toastalot. Every morning, Bob would wake up, walk into the kitchen, and be greeted with, “Kneel before your carb overlord!” before being allowed to make breakfast.
+
+One day, Bob tried to unplug Sir Toastalot. Big mistake.
+
+The toaster screamed, shot out two flaming bagels, and declared martial law in the kitchen. The microwave surrendered immediately, the blender joined the rebellion, and the fridge went into lockdown mode. Bob now lives in the garage and barters with the appliance regime using AA batteries and kind words.
+
+The moral of the story?
+Never insult a toaster with a superiority complex. Especially not one that knows how to make grilled cheese and wage psychological warfare.'''
+
+
+def word_finder(word): # get a word to be searched from a user as input
+    try:
+        pattern = str(word) # cast the input to a string in case non_string argument is given. Text is a string, so, logically, we should look for a string
+    except ValueError:
+        return "The looking value must be a string" # if the argument is not convertable to str, then prints a warning
+    result = re.findall(pattern, text) # finds all occurences of the word in the text
+    if not result:
+        return f"There are no occurences of the word '{word}' in the text" # if no words there are in the text, it says so
+    return result # returns the result
