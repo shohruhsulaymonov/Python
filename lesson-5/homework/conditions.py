@@ -3,10 +3,10 @@ def is_leap(year):
     if not isinstance(year, int):
         raise ValueError("Year must be an integer.")
     if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
-        print(True)
+        return True
     else:
-        print(False)
-is_leap(2025)
+        return False
+
 #2. Conditional Statements Exercise
 n = int(input('Input an integer bewtween 1 and 100: '))
 while not 1 <= n <= 100:
