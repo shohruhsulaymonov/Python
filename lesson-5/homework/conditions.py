@@ -19,7 +19,6 @@ else:
 #Solution 1 with if-else statement.
 a = int(input('Enter a starting position: '))
 b = int(input('Enter an ending position: '))
-numbers = list(range(a, b + 1))
 if a % 2 == 0:
     numbers = list(range(a, b + 1, 2))
 else:
