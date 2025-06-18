@@ -1,10 +1,10 @@
 #1
+while True:
+    num = int(input('Enter a natural number above 1: '))
+    if num > 1:
+        break
+        
 def is_prime(n):
-    if n < 2:
-        while True:
-            n = int(input('Enter a natural number above 1: '))
-            if n > 1:
-                break
     
     divisors = 0
     for i in range(2, n):
@@ -14,7 +14,8 @@ def is_prime(n):
         return True
     else:
         return False
-is_prime(0)
+        
+is_prime(num)
 #2
 def digitsum(k) -> int:
     x = str(k)
