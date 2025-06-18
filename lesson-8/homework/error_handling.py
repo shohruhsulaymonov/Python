@@ -82,10 +82,10 @@ def read_line(n):
 print(*read_line(2))
 #13
 def read_lines():
-    with open("D:\\Project\\categories.txt", 'a') as file:
+    with open("D:\\Project\\categories.txt", 'a+') as file:
         file.write('\n8,Starbucks')
 
-        file = open("D:\\Project\\categories.txt", 'r')
+        file.seek(0)
         contents = file.read()
         
     print(contents)
