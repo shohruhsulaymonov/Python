@@ -9,8 +9,8 @@ with sqlite3.connect('database.db') as connection:
     # executing a query that drop the table 'Roster' if it exists
     cursor.execute('DROP TABLE IF EXISTS Roster')
     result = cursor.execute(create)  # Executing our create query
+    
 # 2
-
     values = [
         ('Benjamin Sisko', 'Human', 40),
         ('Jadzia Dax', 'Trill', 300),
@@ -19,21 +19,21 @@ with sqlite3.connect('database.db') as connection:
 
     # insert command using placeholders to insert multiple values
     cursor.executemany("INSERT INTO Roster VALUES(?,?,?)", values)
+    
 # 3
-
     update = '''
     UPDATE Roster
     SET Name = 'Ezri Dax'
     WHERE Name = 'Jadzia Dax';
     '''  # update statement
     cursor.execute(update)
+    
 # 4
-
     select = '''
     SELECT Name, Age
     FROM Roster
     WHERE Species = 'Bajoran';
     '''
-    result = cursor.execute(select).fetchall(
-    )  # queries all values in the table and then, assigns them to a variable
+    result = cursor.execute(select).fetchall()  # queries all values in the table and then, assigns them to a variable
+    
 print(result)  # prints the values from previous line
